@@ -740,9 +740,7 @@ public class fListener implements Listener {
 
         }
 
-        if ((Protections.BlockBuildingAboveNether.isEnabled() || Protections.BlockPlayersAboveNether.isEnabled())
-                && !e.getPlayer().isOp())
-        {
+        if ((Protections.BlockBuildingAboveNether.isEnabled() || Protections.BlockPlayersAboveNether.isEnabled())) {
 
             if (Protections.ExcludeNetherWorldFromHeightCheck.getTxtSet()
                     .contains(e.getPlayer().getWorld().getName()))
@@ -1644,7 +1642,7 @@ public class fListener implements Listener {
 
                 if (Protections.RemoveOverstackedItems.isEnabled()) {
 
-                    if (!p.isOp()) {
+                    if (true) {
 
                         if (Protections.RemoveItemTypes.isWhitelisted(is)) {
 
@@ -3896,7 +3894,7 @@ public class fListener implements Listener {
 
             if (Protections.RemoveOverstackedItems.isEnabled()) {
 
-                if (!p.isOp()) {
+                if (true) {
 
                     if (Protections.RemoveItemTypes.isWhitelisted(is)) {
 
@@ -4616,7 +4614,7 @@ public class fListener implements Listener {
 
                         }
 
-                        if (!p.isOp()) {
+                        if (true) {
 
                             if (Protections.RemoveItemTypes.isWhitelisted(is)) {
 
@@ -5225,7 +5223,7 @@ public class fListener implements Listener {
             Location l = e.getTo();
             if (l.getY() >= Protections.NetherYLevel.getIntValue()) {
 
-                if (!e.getPlayer().isOp() && (l.getWorld().getName().toLowerCase().contains("nether")
+                if ((l.getWorld().getName().toLowerCase().contains("nether")
                         || l.getWorld().getEnvironment() == Environment.NETHER))
                 {
 
@@ -5326,7 +5324,7 @@ public class fListener implements Listener {
                 || e.getFrom().getBlockZ() != e.getTo().getBlockZ())
         {
 
-            if (e.getPlayer().isOp())
+            if (false)
                 return;
 
             if (Protections.KillPlayersBelowNether.isEnabled()

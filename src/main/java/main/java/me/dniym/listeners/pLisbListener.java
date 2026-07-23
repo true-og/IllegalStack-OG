@@ -33,19 +33,16 @@ public class pLisbListener {
 
         plugin = illegalStack;
 
-        // ProtocolLibrary.getProtocolManager().addPacketListener(new
-        // BookCrashExploitCheck(plugin));
         if (Protections.BlockBadItemsFromCreativeTab.isEnabled()) {
 
             ProtocolLibrary.getProtocolManager().addPacketListener(new PacketAdapter(
                     PacketAdapter.params(plugin, PacketType.Play.Client.SET_CREATIVE_SLOT).optionAsync())
             {
 
-                // new PacketAdapter(plugin, PacketType.Play.Client.SET_CREATIVE_SLOT) {
                 @Override
                 public void onPacketReceiving(PacketEvent event) {
 
-                    if (!Protections.BlockBadItemsFromCreativeTab.isEnabled() || event.getPlayer().isOp()
+                    if (!Protections.BlockBadItemsFromCreativeTab.isEnabled()
                             || event.getPlayer().hasPermission("illegalstack.admin"))
                     {
 
@@ -89,15 +86,6 @@ public class pLisbListener {
                     new PacketAdapter(PacketAdapter.params(plugin, PacketType.Play.Client.USE_ENTITY).optionAsync())
                     {
 
-                        /*
-                         * Must use optionAsync here... if optionSync is used it breaks player damage,
-                         * eg no crits, no sweeping edge...
-                         *
-                         * new PacketAdapter(PacketAdapter.params().plugin(plugin).optionSync().types(
-                         * PacketType.Play.Client.USE_ENTITY)) {
-                         *
-                         */
-
                         @Override
                         public void onPacketReceiving(PacketEvent event) {
 
@@ -116,7 +104,6 @@ public class pLisbListener {
 
                                 } catch (RuntimeException ex) {
 
-                                    // LOGGER.error("Async Packet - Couldn't get an entity from id: ", ex);
                                     return;
 
                                 }

@@ -72,7 +72,7 @@ public class Listener113 implements Listener {
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
                     Block blk = event.getClickedBlock();
-                    if (blk.getType() == Material.SPAWNER && !event.getPlayer().isOp()) {
+                    if (blk.getType() == Material.SPAWNER) {
 
                         plr.sendMessage(Msg.PlayerSpawnEggBlock.getValue());
                         event.setCancelled(true);

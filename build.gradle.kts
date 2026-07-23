@@ -14,7 +14,6 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17 // Compile with JDK 17 compatibility.
     toolchain { // Select Java toolchain.
         languageVersion.set(JavaLanguageVersion.of(17)) // Use JDK 17.
-        vendor.set(JvmVendorSpec.GRAAL_VM) // Use GraalVM CE.
     }
 }
 
@@ -22,7 +21,7 @@ kotlin { jvmToolchain(17) }
 
 /* ----------------------------- Metadata ------------------------------ */
 
-version = "2.9.15" // Declare plugin version (will be in .jar).
+version = "2.9.16" // Declare plugin version (will be in .jar).
 
 group = "net.trueog.illegalstack-og" // Declare bundle identifier.
 

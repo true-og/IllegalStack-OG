@@ -180,7 +180,7 @@ public class fTimer implements Runnable {
 
                     for (Player p : w.getPlayers()) {
 
-                        if (p.isOp() || p.hasPermission("illegalstack.notify")) {
+                        if (p.hasPermission("illegalstack.notify")) {
 
                             continue;
 
@@ -432,7 +432,7 @@ public class fTimer implements Runnable {
 
                         }
 
-                        if (is != null && !p.isOp()) {
+                        if (is != null) {
 
                             if (Protections.RemoveItemTypes.isWhitelisted(is)) {
 
