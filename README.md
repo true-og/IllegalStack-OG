@@ -1,25 +1,33 @@
 # IllegalStack-OG
 
-A fork of IllegalStack maintained by [TrueOG Network](https://true-og.net). IllegalStack is a spigot based plugin dedicated to fixing glitches and exploits that have made it into final Minecraft releases.
+A fork of IllegalStack maintained by [TrueOG Network](https://true-og.net). IllegalStack is a Spigot-based plugin dedicated to fixing glitches and exploits that have made it into final Minecraft releases.
 
-## Changes from IllegalStack:
+## Changes from IllegalStack
 
-- Completely removed references to proprietary JetsMinions API.
+- Completely removed references to the proprietary JetsMinions API. — @NotAlexNoyle
 
-- Disabled config updates.
+- Disabled automatic configuration updates and migrations. — @NotAlexNoyle
 
-- Builds with TrueOG Network's config file, including detailed in-line documentation.
+- Builds with TrueOG Network's config file, including detailed inline documentation. — @NotAlexNoyle
 
-- Updated gradle from 8.1.1 to 8.14.3.
+- Updated Gradle from 8.1.1 to 8.14.3 and modernized the build tooling. — @NotAlexNoyle
 
-- Optimized hopper transfer event handler (`onHopperXfer`) to reduce CPU overhead:
-  - `CheckEntireInventory` now skips `RemoveItemTypesCheck` when `RemoveItemsOfType` is empty.
+- Optimized the hopper transfer event handler (`onHopperXfer`) to reduce CPU overhead. — @NotAlexNoyle
+  - `CheckEntireInventory` skips `RemoveItemTypesCheck` when `RemoveItemsOfType` is empty. — @NotAlexNoyle
+  - `CheckEntireInventory` returns early when none of its sub-checks are enabled. — @NotAlexNoyle
+  - The `DisableInWorlds` check runs before `CheckEntireInventory`, allowing disabled worlds to skip the expensive inventory scan. — @NotAlexNoyle
 
-  - `CheckEntireInventory` early-returns when none of its sub-checks are enabled.
+- Added thread-safe APIs that allow other plugins to exempt players from timer-based item checks. — @NotAlexNoyle
 
-  - Moved `DisableInWorlds` check before `CheckEntireInventory` so whitelisted worlds skip the expensive inventory scan.
+- Fixed vanilla default attribute modifiers being treated as illegal custom attributes. — @NotAlexNoyle
 
-- Fixed dyed leather armor getting removed unintentionally.
+- Fixed dyed leather armor and other items with legitimate vanilla metadata being removed by creative-slot protection. — @NotAlexNoyle
+
+- Refined `BlockBadItemsFromCreativeTab` to reject unsafe attribute payloads without rejecting ordinary metadata, and added automated tests for the behavior. — @NotAlexNoyle
+
+- Removed hardcoded operator bypasses so protections consistently respect the permission system. — @GWServer
+
+- Fixed modern server-version detection and changed configured item-name and item-lore startup logging to concise entry counts. — @NotAlexNoyle
 
 ## Building
 
